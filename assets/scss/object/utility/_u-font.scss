@@ -1,0 +1,11 @@
+@use "../../global" as *;
+
+.u-font {
+  font-family: $ff;
+  &__jp {
+    font-family: $ff-jp;
+  }
+  &__en {
+    font-family: $ff-en;
+  }
+}

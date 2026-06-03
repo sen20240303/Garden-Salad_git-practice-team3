@@ -1,0 +1,33 @@
+@use "../../global" as *;
+
+.p-test {
+  padding-block: rm(120);
+  @include mq(sp) {
+    padding-block: rm(70);
+  }
+}
+.p-test__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include mq(sp) {
+    flex-direction: column;
+    row-gap: rm(20);
+  }
+}
+.p-test__title {
+  @include font(50, 700, 47, 0);
+  text-transform: uppercase;
+}
+.p-test__text {
+  margin-block-start: rm(40);
+  @include font(28, 400, 42, 0);
+}
+.p-test__text-wrap {
+  width: min(rm(400), 100%);
+}
+
+.p-test__img {
+  width: min(rm(600), 100%);
+  height: auto;
+}

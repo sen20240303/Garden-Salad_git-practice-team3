@@ -1,0 +1,15 @@
+@use "../../global" as *;
+
+.u-pointer__none {
+  pointer-events: none !important;
+  &--sp {
+    @include mq(sp) {
+      pointer-events: none !important;
+    }
+  }
+  &--pc {
+    @include mq(pc) {
+      pointer-events: none !important;
+    }
+  }
+}
