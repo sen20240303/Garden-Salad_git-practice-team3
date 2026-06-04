@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🚀 共同コーディングプロジェクト作業ガイド
 
 メンバーのみなさん、お疲れ様です！
@@ -71,6 +70,79 @@ garden-salad/
 }
 ```
 
+> **注意:** `$ff-en-satisfy` と `$ff-en-reross` は英字向けフォントです。日本語の見出し・本文には `$ff` / `$ff-jp` を使ってください。
+
+---
+
+## 📐 SCSS共通（`@include font()` / `rm()`）
+
+Figma の数値（px）をそのまま渡して CSS に変換する仕組みです。定義は `assets/scss/global/_mixin.scss`（font）と `_function.scss`（rm）にあります。
+
+各 SCSS ファイルの先頭で、次のように global を読み込んでから使います。
+
+```scss
+@use "../../global" as *; // project 配下の場合（階層に応じてパスを調整）
+```
+
+### `@include font()` の使い方
+
+タイポグラフィ（サイズ・太さ・行間・字間）を一括指定するミックスインです。**引数はすべて Figma の px 想定で、単位は付けません。**
+
+```scss
+.p-test__title {
+  @include font(50, 700, 47, 0);
+  font-family: $ff-en-reross; // font-family は別途指定
+}
+```
+
+| 順番 | 引数 | 例 | 出力される内容 |
+|------|------|-----|----------------|
+| 1 | フォントサイズ（px） | `50` | `font-size`（PC は `max(rem, サイズ×0.8px)`、SP は `rem` のみ） |
+| 2 | `font-weight` | `700` | 太さ |
+| 3 | 行の高さ（px） | `47` | `line-height: 47 ÷ 50` → 比率（**0.94**） |
+| 4 | 字間（px） | `0` | `letter-spacing`（`em` 換算） |
+
+**ポイント**
+
+- 行高・字間を使うときは、**第1引数（サイズ）も必ず渡す**（計算で `$size` を使うため）。
+- 不要な項目だけ省略したい場合は `@include font(50);` のように、必要な引数だけ渡せます。
+- `font-family` はミックスインに含まれないため、`$ff` などを **別行で指定**してください。
+
+### `rm()` の使い方
+
+余白・幅など、カンプの **px 数値を `rem` に変換**する関数です。
+
+```scss
+.p-test {
+  padding-block: rm(120);
+  @include mq(sp) {
+    padding-block: rm(70); // SP だけ別の値にする例
+  }
+}
+
+.p-test__text-wrap {
+  width: min(rm(400), 100%); // 400px 相当まで、親幅は超えない
+}
+```
+
+| 記法 | 意味 |
+|------|------|
+| `rm(120)` | `calc(120 / 16 * 1rem)` → **7.5rem**（120px 相当） |
+| `rm(40)` | **2.5rem**（40px 相当） |
+
+**ポイント**
+
+- 引数に **単位は付けない**（`rm(120)` が正しい、`rm(120px)` は不可）。
+- SP だけ変えるときは `@include mq(sp) { ... }` の中で別の `rm()` を書きます。
+
+**関連関数（同じ `_function.scss`）**
+
+| 関数 | 用途の目安 |
+|------|------------|
+| `px($arg)` | メディアクエリの境界値など、固定 `px` が必要なとき |
+| `vw($arg)` | PC カンプ（1440px）基準の画面幅連動 |
+| `vw-sp($arg)` | SP カンプ（375px）基準の画面幅連動 |
+
 ---
 
 ## 🌟 Font Awesome（アイコン）の使い方
@@ -112,6 +184,3 @@ HTMLに `<i>` タグを記述するだけでアイコンが表示されます。
 - `assets/css/style.css` は直接編集しないでください。SCSSをコンパイルして生成されるファイルです。
 - 画像は `assets/img/` に格納してください。
 - SCSSを追加する場合は `assets/scss/object/project/` 配下に `_p-セクション名.scss` のファイルを作成し、`style.scss` でインポートしてください。
-=======
-# Garden-Salad_git-practice-team3
->>>>>>> 2b95d171de3de398671a03daa11cb8b2646ccb4c

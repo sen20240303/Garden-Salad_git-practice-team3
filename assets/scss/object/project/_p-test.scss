@@ -18,10 +18,12 @@
 .p-test__title {
   @include font(50, 700, 47, 0);
   text-transform: uppercase;
+  font-family: $ff-en-reross;
 }
 .p-test__text {
   margin-block-start: rm(40);
   @include font(28, 400, 42, 0);
+  font-family: $ff-en-satisfy;
 }
 .p-test__text-wrap {
   width: min(rm(400), 100%);
