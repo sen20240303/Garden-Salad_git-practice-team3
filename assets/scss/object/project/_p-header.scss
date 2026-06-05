@@ -9,42 +9,95 @@
   width: 100%;
   height: auto;
 
-  padding-inline: rm(40);
-  background: #e7f482;
+  padding-inline: rm(32) rm(71);
+  background: $color-base;
+
+  @include mq(sp) {
+    padding-inline: rm(16);
+  }
 }
 .p-header__inner {
   display: grid;
   align-items: center;
   
-  grid-template-columns: rm(150) 1fr;
-  padding-block: rm(17);
+  grid-template-columns: rm(117) 1fr;
+  padding-block: rm(14) rm(12);
+
+  @include mq(sp) {
+    grid-template-columns: rm(55) 1fr;
+    padding-block: rm(15);
+  }
 }
 .p-header__logo {
-  font-size: rm(20);
+  width: rm(117);
+  height: auto;
+  aspect-ratio: 117 / 63;
+  transition: opacity 0.3s ease;
+
+  @include mq(sp) {
+    width: rm(55);
+    aspect-ratio: 55 / 29;
+  }
+
+  @media(any-hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
 }
 .p-header__nav {
   display: flex;
   align-items: center;
   justify-content: end;
-  column-gap: rm(60);
-  //spの場合非表示
-  @include mq(sp) {
-    display: none;
-  }
 }
 .p-header__list {
   display: flex;
   align-items: center;
-  column-gap: rm(32);
-  li a {
-    font-size: rm(20);
+  column-gap: rm(40);
+
+  @include mq(sp) {
+    column-gap: rm(20);
   }
-}
-.p-header__btn {
-  padding:rm(8) rm(26);
-  background: #fff;
-  border: 1px solid #fff;
-  color: #001A75;
-  font-size: rm(20);
-  transition: all 0.3s ease;
+
+  li a {
+    font-family: $ff-en-reross;
+    color: $white;
+    font-size: rm(18);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: rm(0.54);
+    @include font(18, 400, 21.6, 0.54);
+    position: relative;
+
+    @include mq(sp) {
+      font-size: rm(14);
+      letter-spacing: rm(0.42);
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: rm(-8);
+      left: 0;
+      width: 100%;
+      height: rm(2);
+      background: $accent-color;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
 }
