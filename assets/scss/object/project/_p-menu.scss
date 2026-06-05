@@ -1,0 +1,15 @@
+@use "../../global" as *;
+
+.p-menu__section {
+  background-color: $color-base;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: rm(72);
+
+    border: 1px solid $white;
+  }
+}
+
