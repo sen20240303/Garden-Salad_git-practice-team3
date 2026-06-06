@@ -1,0 +1,43 @@
+@use "../../global" as *;
+.c-headings {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(15);
+  align-items: center;
+  width: fit-content;
+  margin-inline: auto;
+}
+.c-headings__ja {
+  @include font(18, 700, 18, 0.9);
+  font-family: $ff-jp;
+  // normalは実数でないのでミックスインの直後に直接書いて上書きする
+  line-height: normal;
+}
+.c-headings__en {
+  @include font(48, 400, 48, 2.4);
+  // normalは実数でないのでミックスインの直後に直接書いて上書きする
+  line-height: normal;
+  font-family: $ff-en-reross;
+  text-transform: capitalize;
+
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: rm(50);
+    height: rm(2);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.--line-green {
+    &::after {
+      background-color: $accent-color;
+    }
+  }
+  &.--line-white {
+    &::after {
+      background-color: $white;
+    }
+  }
+}
