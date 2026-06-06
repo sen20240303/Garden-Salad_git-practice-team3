@@ -1,0 +1,63 @@
+@use "../../global" as *;
+
+.p-fv {
+  width: 100%;
+  background: $color-base;
+}
+
+.p-fv__inner {
+}
+
+.p-fv__top {
+  position: relative;
+}
+
+.p-fv__left {
+  position: absolute;
+  top: calc(94 / 1440 * 100vw);
+  left: calc(178 / 1440 * 100vw);
+
+  @include mq(sp) {
+    top: calc(30 / 375 * 100vw);
+    left: calc(19 / 375 * 100vw);
+  }
+}
+
+.p-fv__title-wrap {
+
+}
+
+.p-fv__title {
+  color: $white;
+  font-family: $ff-en-reross;
+  @include font(100, 400, 100, 1);
+
+  @media (max-width: 1441px) {
+    font-size: calc(100 / 1440 * 100vw);
+  }
+
+  @include mq(sp) {
+    font-size: rm(36);
+  }
+
+  span {
+    color: $accent-color;
+  }
+}
+
+.p-fv__text-white {
+
+}
+
+.p-fv__text-green {
+
+}
+
+.p-fv__right {
+  margin-left: calc(360 / 1440 * 100vw);
+}
+
+.p-fv__bottom {
+
+}
+
