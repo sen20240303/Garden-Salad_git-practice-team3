@@ -1,8 +1,8 @@
 /**
-* 最大幅に基づいてviewport設定を切り替える関数。
-* @function
-* @param {number} maxWidth - viewportを固定する際の最大幅
-*/
+ * 最大幅に基づいてviewport設定を切り替える関数。
+ * @function
+ * @param {number} maxWidth - viewportを固定する際の最大幅
+ */
 const switchViewport = (maxWidth) => {
   const viewport = document.querySelector('meta[name="viewport"]');
   const value =
@@ -16,15 +16,15 @@ const switchViewport = (maxWidth) => {
 addEventListener("resize", () => switchViewport(375));
 switchViewport(375);
 
-
-
 // ハンバーガーメニュー
 document.addEventListener("DOMContentLoaded", () => {
   //定義
-  const drawerIcon = document.querySelector('.p-drawer__icon');
-  const drawer = document.querySelector('.p-drawer');
-  const drawerNavItem = document.querySelectorAll('.p-drawer__body a[href^="#"]');
-  const headerHeight = document.querySelector('.p-header').offsetHeight;
+  const drawerIcon = document.querySelector(".p-drawer__icon");
+  const drawer = document.querySelector(".p-drawer");
+  const drawerNavItem = document.querySelectorAll(
+    '.p-drawer__body a[href^="#"]',
+  );
+  const headerHeight = document.querySelector(".p-header").offsetHeight;
   const breakpoint = 768;
   let isMenuOpen = false;
   let isMenuOpenAtBreakpoint = false;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       drawer.classList.add("js-show");
       drawerIcon.classList.add("js-show");
     }
-  }
+  };
 
   //メニューを閉じるアニメーション
   const closeMenu = () => {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       drawerIcon.classList.remove("js-show");
       isMenuOpen = false;
     }
-  }
+  };
 
   //メニューの開閉動作
   const toggleMenu = () => {
@@ -68,38 +68,158 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //メニュー外クリック処理
   const clickOuter = (event) => {
-    if (drawer.classList.contains("js-show") && !drawer.contains(event.target) && isMenuOpen) {
+    if (
+      drawer.classList.contains("js-show") &&
+      !drawer.contains(event.target) &&
+      isMenuOpen
+    ) {
       closeMenu();
-    } else if (drawer.classList.contains("js-show") && !drawer.contains(event.target)) {
+    } else if (
+      drawer.classList.contains("js-show") &&
+      !drawer.contains(event.target)
+    ) {
       isMenuOpen = true;
     }
-  }
+  };
 
   //該当箇所までスクロール
   const linkScroll = (target) => {
     if (target) {
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = targetPosition - headerHeight;
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
+  };
+
+  if (drawerIcon && drawer) {
+    //ヘッダーアイコン クリック時
+    drawerIcon.addEventListener("click", toggleMenu);
+    //画面幅リサイズ時
+    window.addEventListener("resize", handleResize);
+    //メニュー外クリック時
+    document.addEventListener("click", clickOuter);
+    //ページ内リンクナビメニュー クリック時
+    drawerNavItem.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        closeMenu();
+        const targetItem = document.querySelector(item.getAttribute("href"));
+        linkScroll(targetItem);
+      });
+    });
   }
 
-  //ヘッダーアイコン クリック時
-  drawerIcon.addEventListener("click", toggleMenu);
-  //画面幅リサイズ時
-  window.addEventListener("resize", handleResize);
-  //メニュー外クリック時
-  document.addEventListener("click", clickOuter);
-  //ページ内リンクナビメニュー クリック時
-  drawerNavItem.forEach(item => {
-    item.addEventListener("click", event => {
+  // お問い合わせフォーム バリデーション
+  const form = document.querySelector("#contact-form");
+  if (!form) return;
+
+  const inName = document.querySelector("#inName");
+  const errorName = document.querySelector("#emName");
+  const inEmail = document.querySelector("#inEmail");
+  const errorEmail = document.querySelector("#emEmail");
+  const inTextarea = document.querySelector("#inTextarea");
+  const errorTextarea = document.querySelector("#emTextarea");
+  const inPrivacy = document.querySelector("#inPrivacy");
+  const errorPrivacy = document.querySelector("#emPrivacy");
+  const submitButton = form.querySelector("#button");
+
+  if (!submitButton) return;
+
+  const scrollToElement = (element) => {
+    element.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  submitButton.addEventListener("click", function (event) {
+    if (inName.value.trim() === "") {
+      inName.classList.add("invalid");
+      errorName.textContent = "必須項目です。";
+      scrollToElement(inName);
       event.preventDefault();
-      closeMenu();
-      const targetItem = document.querySelector(item.getAttribute("href"));
-      linkScroll(targetItem);
-    });
+    } else {
+      errorName.textContent = "";
+    }
+    if (!inEmail.value.includes("@")) {
+      inEmail.classList.add("invalid");
+      errorEmail.textContent = "メールアドレスの形式でご入力ください。";
+      scrollToElement(inEmail);
+      event.preventDefault();
+    } else {
+      errorEmail.textContent = "";
+    }
+    if (inTextarea.value.trim() === "") {
+      inTextarea.classList.add("invalid");
+      errorTextarea.textContent = "必須項目です。";
+      scrollToElement(inTextarea);
+      event.preventDefault();
+    } else {
+      errorTextarea.textContent = "";
+    }
+    if (!inPrivacy.checked) {
+      inPrivacy.classList.add("invalid");
+      errorPrivacy.textContent = "必須項目です。";
+      scrollToElement(inPrivacy);
+      event.preventDefault();
+    } else {
+      errorPrivacy.textContent = "";
+    }
   });
+
+  inName.onblur = function () {
+    if (!inName.value) {
+      inName.classList.add("invalid");
+      errorName.textContent = "必須項目です。";
+    }
+  };
+  inName.onfocus = function () {
+    if (this.classList.contains("invalid")) {
+      errorName.textContent = "";
+    }
+  };
+  inEmail.onblur = function () {
+    if (!inEmail.value.includes("@")) {
+      inEmail.classList.add("invalid");
+      errorEmail.textContent = "メールアドレスの形式でご入力ください。";
+    }
+  };
+  inEmail.onfocus = function () {
+    if (this.classList.contains("invalid")) {
+      errorEmail.textContent = "";
+    }
+  };
+  inTextarea.onblur = function () {
+    if (!inTextarea.value) {
+      inTextarea.classList.add("invalid");
+      errorTextarea.textContent = "必須項目です。";
+    }
+  };
+  inTextarea.onfocus = function () {
+    if (this.classList.contains("invalid")) {
+      errorTextarea.textContent = "";
+    }
+  };
+  inPrivacy.onchange = function () {
+    if (!inPrivacy.checked) {
+      inPrivacy.classList.add("invalid");
+      errorPrivacy.textContent = "必須項目です。";
+    } else {
+      inPrivacy.classList.remove("invalid");
+      errorPrivacy.textContent = "";
+    }
+  };
+
+  window.onSubmit = function (token) {
+    if (
+      !inPrivacy.checked ||
+      inTextarea.value.trim() === "" ||
+      !inEmail.value.includes("@") ||
+      inName.value.trim() === ""
+    ) {
+      return;
+    }
+    form.submit();
+  };
 });
