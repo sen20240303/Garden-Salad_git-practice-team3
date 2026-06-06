@@ -209,6 +209,20 @@ select {
   font-family: "Noto Sans JP", sans-serif;
   line-height: normal;
 }
+@media screen and (max-width: 767px) {
+  .c-headings__ja {
+    font-size: max(0.875rem, 11.2px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    line-height: normal;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .c-headings__ja {
+    font-size: 0.875rem;
+  }
+}
 
 .c-headings__en {
   font-size: max(3rem, 38.4px);
@@ -225,6 +239,22 @@ select {
   line-height: normal;
   font-family: "reross-quadratic", sans-serif;
   text-transform: capitalize;
+}
+@media screen and (max-width: 767px) {
+  .c-headings__en {
+    font-size: max(2rem, 25.6px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.05em;
+    line-height: normal;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .c-headings__en {
+    font-size: 2rem;
+  }
+}
+.c-headings__en {
   position: relative;
 }
 .c-headings__en::after {
@@ -578,6 +608,11 @@ select {
   max-width: 50rem;
   margin-inline: auto;
 }
+@media screen and (max-width: 767px) {
+  .p-contact__card {
+    padding: 4rem 0.9375rem;
+  }
+}
 
 .contact__form {
   display: -webkit-box;
@@ -605,6 +640,12 @@ select {
   font-size: 1.125rem;
   line-height: normal;
 }
+@media screen and (max-width: 767px) {
+  .contact__head {
+    font-size: 1rem;
+    line-height: normal;
+  }
+}
 .contact__head span.--must {
   position: relative;
   display: inline-block;
@@ -625,6 +666,38 @@ select {
   color: #ffffff;
 }
 
+.contact__acceptance {
+  text-align: center;
+  font-size: max(1.125rem, 14.4px);
+}
+@media screen and (max-width: 767px) {
+  .contact__acceptance {
+    font-size: 1.125rem;
+  }
+}
+.contact__acceptance {
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+@media screen and (max-width: 767px) {
+  .contact__acceptance {
+    font-size: max(1rem, 12.8px);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .contact__acceptance {
+    font-size: 1rem;
+  }
+}
+.contact__acceptance a {
+  color: #159741;
+  text-decoration-line: underline;
+}
+
 input[type=text],
 input[type=email],
 select,
@@ -638,33 +711,53 @@ textarea {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  outline: none;
+  -webkit-transition: border-color 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  input[type=text],
+  input[type=email],
+  select,
+  textarea {
+    padding: 1rem 1rem;
+  }
 }
 input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #bdbdbd;
-  height: 10rem;
 }
 input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder {
   color: #bdbdbd;
-  height: 10rem;
 }
 input[type=text]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #bdbdbd;
-  height: 10rem;
 }
 input[type=text]::-ms-input-placeholder, input[type=email]::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
   color: #bdbdbd;
-  height: 10rem;
 }
 input[type=text]::placeholder,
 input[type=email]::placeholder,
 select::placeholder,
 textarea::placeholder {
   color: #bdbdbd;
-  height: 10rem;
+}
+input[type=text]:hover, input[type=text]:focus,
+input[type=email]:hover,
+input[type=email]:focus,
+select:hover,
+select:focus,
+textarea:hover,
+textarea:focus {
+  border-color: #159741;
+  -webkit-box-shadow: 0 0 0 3px rgba(21, 151, 65, 0.25);
+          box-shadow: 0 0 0 3px rgba(21, 151, 65, 0.25);
 }
 
 textarea {
   resize: vertical;
+  height: 10rem;
 }
 
 select {
@@ -684,22 +777,52 @@ input[type=checkbox] {
   clip: rect(0, 0, 0, 0);
 }
 
-input[type=checkbox]:checked + span::after {
-  opacity: 1;
-}
-
 .contact__data-checkbox span {
   display: inline-block;
+  font-size: 1.125rem;
+  line-height: normal;
+  padding-left: 2.625rem;
   position: relative;
 }
 .contact__data-checkbox span::before {
   content: "";
   position: absolute;
+  top: -0.09375rem;
+  left: 0;
+  width: 1.875rem;
+  height: 1.875rem;
+  border: 1px solid #2f2f2f;
+  background: #ffffff;
+  box-shadow: none;
+  -webkit-transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .contact__data-checkbox span::after {
   content: "";
   position: absolute;
+  top: 0.25rem;
+  left: 0.6875rem;
+  width: 0.5625rem;
+  height: 0.9375rem;
+  rotate: 45deg;
+  border-right: 1.5px solid #159741;
+  border-bottom: 1.5px solid #159741;
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.contact__data-checkbox input[type=checkbox]:checked + span::after {
+  opacity: 1;
+}
+.contact__data-checkbox input[type=checkbox]:hover + span::before,
+.contact__data-checkbox input[type=checkbox]:focus + span::before {
+  -webkit-box-shadow: 0 0 0 3px rgba(21, 151, 65, 0.25);
+          box-shadow: 0 0 0 3px rgba(21, 151, 65, 0.25);
+  background: #ffffff;
+}
+.contact__data-checkbox input[type=checkbox]:active + span::before {
+  border-color: #159741;
+  background: rgba(21, 151, 65, 0.15);
 }
 
 input[type=radio] {
@@ -750,9 +873,36 @@ input[type=button]::-webkit-search-decoration {
 
 .contact__submit {
   text-align: center;
+  background: #159741;
+  padding: 0.9375rem;
+  width: 100%;
+  max-width: 14.9375rem;
+  margin-inline: auto;
+  -webkit-margin-before: 0.625rem;
+          margin-block-start: 0.625rem;
+}
+@media screen and (max-width: 767px) {
+  .contact__submit {
+    max-width: 18.75rem;
+  }
 }
 .contact__submit input[type=submit] {
   display: inline-block;
+  color: #ffffff;
+}
+.contact__submit {
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.contact__submit:hover {
+  opacity: 0.8;
+}
+
+.contact__error-message {
+  color: red;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 0.375rem;
 }
 
 @media (min-width: 768px) {
