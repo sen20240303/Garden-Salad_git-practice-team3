@@ -1,0 +1,210 @@
+@use "../../global" as *;
+
+.p-contact {
+  padding-block: rm(130);
+  background: url(../img/contact-img-bg.webp) no-repeat center center / cover;
+}
+.p-contact__headings {
+}
+.p-contact__heading-ja {
+  color: $accent-color;
+}
+.p-contact__heading-en {
+}
+.p-contact__text {
+  @include font(16, 400, 16, 0.48);
+  line-height: normal;
+  padding-block: rm(32) rm(51);
+  text-align: center;
+}
+.p-contact__card {
+  padding: rm(64) rm(50) rm(72) rm(50);
+  background: $color-main;
+  width: 100%;
+  max-width: rm(800);
+  margin-inline: auto;
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(32);
+}
+.contact__row {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(4);
+}
+.contact__head {
+  font-size: rm(18);
+  line-height: normal;
+
+  span.--must {
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: "必須";
+      position: absolute;
+      top: calc(50% + 1px);
+      translate: 0 -50%;
+      left: calc(100% + 17px);
+      font-size: rm(12);
+      line-height: normal;
+      display: inline-block;
+      padding: 1px 7px 3px 8px;
+      border-radius: 6px;
+      background: $accent-color;
+      white-space: nowrap;
+      color: $white;
+    }
+  }
+}
+
+// ===================================
+// 全体設定
+// ===================================
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border-radius: 0;
+  width: 100%;
+  border: 1px solid $color-base;
+  background: $white;
+  padding: rm(13) rm(23);
+  font-size: rm(16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  &::placeholder {
+    color: #bdbdbd;
+    height: rm(160);
+  }
+}
+
+//テキストエリア
+textarea {
+  resize: vertical;
+}
+
+// ===================================
+// セレクトボックス
+// ===================================
+select {
+  //矢印を消す
+  -webkit-appearance: none;
+  appearance: none;
+}
+.contact__select-wrap {
+  position: relative;
+}
+
+// ===================================
+// チェックボックス
+// ===================================
+//デフォルトのものを消す
+input[type="checkbox"] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+//チェックボックスカスタマイズ ====================
+//チェックされた時の挙動
+input[type="checkbox"]:checked + span {
+  &::after {
+    opacity: 1;
+  }
+}
+//カスタマイズ
+.contact__data-checkbox {
+  //全体のcss
+
+  //各項目のcss
+  span {
+    display: inline-block;
+
+    position: relative;
+    //frame
+    &::before {
+      content: "";
+      position: absolute;
+    }
+    //active
+    &::after {
+      content: "";
+      position: absolute;
+
+      opacity: 0;
+    }
+  }
+}
+
+// ===================================
+// ラジオボタン
+// ===================================
+//デフォルトのものを消す
+input[type="radio"] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+//ラジオボタンカスタマイズ ====================
+//選択された時の挙動
+input[type="radio"]:checked + span {
+}
+//カスタマイズ
+.contact__data-radio {
+  //全体のcss
+
+  //各項目のcss
+  span {
+    display: inline-block;
+
+    position: relative;
+    //frame
+    &::before {
+      content: "";
+      position: absolute;
+    }
+    //active
+    &::after {
+      content: "";
+      position: absolute;
+
+      opacity: 0;
+    }
+  }
+}
+
+// ===================================
+// 送信ボタン
+// ===================================
+//ブラウザによって異なるデフォルト設定を初期化
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0px;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: transparent;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+//ボタンを中央寄せに(ケースによる)
+.row.jc-center {
+  justify-content: center;
+}
+
+// 送信ボタンのカスタマイズ====================
+.contact__submit {
+  text-align: center;
+  input[type="submit"] {
+    display: inline-block;
+  }
+}

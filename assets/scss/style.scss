@@ -13,16 +13,17 @@
 //Component
 @use "object/component/c-btn";
 @use "object/component/c-animated";
+@use "object/component/c-headings";
 
 //Project
 @use "object/project/p-header";
 @use "object/project/p-drawer";
 @use "object/project/p-footer";
 @use "object/project/p-test";
+@use "object/project/p-contact";
 
 //utility
 @use "object/utility/u-disp";
 @use "object/utility/u-font";
 @use "object/utility/u-text";
 @use "object/utility/u-pointer";
-
