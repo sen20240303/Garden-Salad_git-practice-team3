@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -578,13 +579,90 @@ select {
   margin-inline: auto;
 }
 
+.contact__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2rem;
+}
+
+.contact__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.contact__head {
+  font-size: 1.125rem;
+  line-height: normal;
+}
+.contact__head span.--must {
+  position: relative;
+  display: inline-block;
+}
+.contact__head span.--must::after {
+  content: "必須";
+  position: absolute;
+  top: calc(50% + 1px);
+  translate: 0 -50%;
+  left: calc(100% + 17px);
+  font-size: 0.75rem;
+  line-height: normal;
+  display: inline-block;
+  padding: 1px 7px 3px 8px;
+  border-radius: 6px;
+  background: #159741;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
 input[type=text],
 input[type=email],
 select,
 textarea {
   border-radius: 0;
   width: 100%;
+  border: 1px solid #2f2f2f;
+  background: #ffffff;
+  padding: 0.8125rem 1.4375rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
+input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #bdbdbd;
+  height: 10rem;
+}
+input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder {
+  color: #bdbdbd;
+  height: 10rem;
+}
+input[type=text]:-ms-input-placeholder, input[type=email]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #bdbdbd;
+  height: 10rem;
+}
+input[type=text]::-ms-input-placeholder, input[type=email]::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #bdbdbd;
+  height: 10rem;
+}
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #bdbdbd;
+  height: 10rem;
+}
+
 textarea {
   resize: vertical;
 }

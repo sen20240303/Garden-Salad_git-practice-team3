@@ -24,6 +24,40 @@
   max-width: rm(800);
   margin-inline: auto;
 }
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(32);
+}
+.contact__row {
+  display: flex;
+  flex-direction: column;
+  row-gap: rm(4);
+}
+.contact__head {
+  font-size: rm(18);
+  line-height: normal;
+
+  span.--must {
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: "必須";
+      position: absolute;
+      top: calc(50% + 1px);
+      translate: 0 -50%;
+      left: calc(100% + 17px);
+      font-size: rm(12);
+      line-height: normal;
+      display: inline-block;
+      padding: 1px 7px 3px 8px;
+      border-radius: 6px;
+      background: $accent-color;
+      white-space: nowrap;
+      color: $white;
+    }
+  }
+}
 
 // ===================================
 // 全体設定
@@ -34,8 +68,16 @@ select,
 textarea {
   border-radius: 0;
   width: 100%;
-
+  border: 1px solid $color-base;
+  background: $white;
+  padding: rm(13) rm(23);
+  font-size: rm(16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   &::placeholder {
+    color: #bdbdbd;
+    height: rm(160);
   }
 }
 
