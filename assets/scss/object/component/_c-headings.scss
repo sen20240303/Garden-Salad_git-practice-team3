@@ -12,6 +12,10 @@
   font-family: $ff-jp;
   // normalは実数でないのでミックスインの直後に直接書いて上書きする
   line-height: normal;
+  @include mq(sp) {
+    @include font(14, 700, 14, 0.7);
+    line-height: normal;
+  }
 }
 .c-headings__en {
   @include font(48, 400, 48, 2.4);
@@ -19,6 +23,11 @@
   line-height: normal;
   font-family: $ff-en-reross;
   text-transform: capitalize;
+
+  @include mq(sp) {
+    @include font(32, 400, 40, 1.6);
+    line-height: normal;
+  }
 
   position: relative;
   &::after {

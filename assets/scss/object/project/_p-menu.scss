@@ -353,6 +353,7 @@
   margin-top: rm(80);
   text-align: center;
   padding-bottom: rm(36);
+  z-index: 5;
   @include mq(sp) {
     padding-inline: rm(21);
     margin-top: rm(0);
@@ -417,6 +418,10 @@
 .p-menu__insta-img {
   flex-shrink: 0;
   width: rm(231);
+  @include mq(sp) {
+    width: 100%;
+    min-width: rm(125)
+  }
 
   img {
     width: 100%;
@@ -449,6 +454,15 @@
   align-items: center;
   justify-content: center;
   gap: rm(23);
+  @media(any-hover: hover) {
+    &:hover {
+      background: $color-text;
+      color: $white;
+      &::after {
+        background: url("../img/insta-link-icon-hover.svg") no-repeat center center / contain;
+      }
+    }
+  }
 
   cursor: pointer;
   &::after {
@@ -476,6 +490,7 @@
     inset: rm(13);
     z-index: 1;
     border: 1px solid $color-text;
+    pointer-events: none;
     @include mq(sp) {
       inset: rm(10);
     }
