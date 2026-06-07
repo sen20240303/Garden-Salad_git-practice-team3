@@ -1,6 +1,10 @@
 @use "../global" as *;
 
 .l-main {
-  padding-block-start: rm(72);
+  padding-block-start: rm(89);
   min-height: 100vh;
+
+  @include mq(sp) {
+    padding-block-start: rm(59);
+  }
 }

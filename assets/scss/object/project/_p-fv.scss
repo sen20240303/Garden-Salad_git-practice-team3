@@ -1,0 +1,179 @@
+@use "../../global" as *;
+
+.p-fv {
+  width: 100%;
+  background: $color-base;
+}
+
+.p-fv__inner {
+}
+
+.p-fv__top {
+  position: relative;
+}
+
+.p-fv__left {
+  position: absolute;
+  top: calc(87 / 1440 * 100vw);
+  left: calc(178 / 1440 * 100vw);
+
+  @include mq(sp) {
+    top: calc(30 / 375 * 100vw);
+    left: calc(19 / 375 * 100vw);
+  }
+}
+
+.p-fv__title-wrap {
+
+}
+
+.p-fv__title {
+  color: $white;
+  font-family: $ff-en-reross;
+  @include font(100, 400, 100, 0);
+
+  @media (max-width: 1441px) {
+    font-size: calc(100 / 1440 * 100vw);
+  }
+
+  @include mq(sp) {
+    @include font(36, 400, 38, 0);
+  }
+
+  span {
+    color: $accent-color;
+  }
+}
+
+.p-fv__text-white {
+  margin-top: rm(54);
+  padding-left: rm(19);
+  color: $white;
+  @include font(32, 700, 38.4, 1.6);
+
+  @include mq(sp) {
+    margin-top: rm(19);
+    padding-left: rm(5);
+    @include font(14, 500, 16.8, 0.7);
+  }
+}
+
+.p-fv__text-green {
+  margin-top: rm(25);
+  color: $white;
+  @include font(32, 700, 38.4, 1.6);
+
+  @include mq(sp) {
+    margin-top: rm(10);
+    @include font(14, 500, 16.8, 0.7);
+  }
+
+  span {
+    padding: rm(11) rm(21) rm(11) 0;
+    background-color: $accent-color;
+
+    @include mq(sp) {
+      padding: rm(7) rm(5) rm(7) 0;
+    }
+  }
+
+
+}
+
+.p-fv__right {
+  margin-left: calc(360 / 1440 * 100vw);
+  width: calc(1080 / 1440 * 100vw);
+  height: auto;
+  aspect-ratio: 1080 / 650;
+
+  @include mq(sp) {
+    margin-left: calc(67 / 375 * 100vw);
+    width: calc(308 / 375 * 100vw);
+    aspect-ratio: 308 / 243;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-fv__bottom {
+  position: relative;
+  padding-block: rm(120) rm(110);
+
+  @include mq(sp) {
+    padding-block: rm(50) rm(65);
+  }
+}
+
+.p-fv__bottom-inner {
+  color: $white;
+  text-align: center;
+  padding-inline: rm(40);
+
+  @include mq(sp) {
+    padding-inline: rm(90);
+  }
+
+  @media (max-width: 599px) {
+    padding-inline: rm(33) rm(32);
+  }
+
+  // @include mq(sp) {
+  //   padding-inline: rm(33) rm(32);
+  // }
+}
+
+.p-fv__bottom-heading {
+  margin-bottom: rm(48);
+  @include font(30, 700, 45, 1.5);
+
+  @include mq(sp) {
+    position: relative;
+    left: rm(7);
+    margin-bottom: rm(24);
+    @include font(20, 700, 30, 1);
+  }
+}
+
+.p-fv__bottom-text {
+  @include font(18, 400, 27, 0.54);
+
+  @include mq(sp) {
+    @include font(16, 400, 24, 0.48);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: rm(28);
+
+    @include mq(sp) {
+      margin-bottom: rm(23);
+    }
+  }
+}
+
+.p-fv__bottom-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 207;
+
+  @include mq(sp) {
+    left: 50%;
+    translate: -50%;
+    width: rm(366);
+    aspect-ratio: 375 / 170;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
