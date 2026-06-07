@@ -23,6 +23,9 @@
   width: 100%;
   max-width: rm(800);
   margin-inline: auto;
+  @include mq(sp) {
+    padding: rm(64) rm(15);
+  }
 }
 .contact__form {
   display: flex;
@@ -37,6 +40,10 @@
 .contact__head {
   font-size: rm(18);
   line-height: normal;
+  @include mq(sp) {
+    font-size: rm(16);
+    line-height: normal;
+  }
 
   span.--must {
     position: relative;
@@ -59,6 +66,17 @@
   }
 }
 
+.contact__acceptance {
+  text-align: center;
+  @include font(18, 400, 27, 0.9);
+  @include mq(sp) {
+    @include font(16, 400, 24, 0.8);
+  }
+  a {
+    color: $accent-color;
+    text-decoration-line: underline;
+  }
+}
 // ===================================
 // 全体設定
 // ===================================
@@ -75,15 +93,27 @@ textarea {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  @include mq(sp) {
+    padding: rm(16) rm(16);
+  }
   &::placeholder {
     color: #bdbdbd;
-    height: rm(160);
+  }
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    box-shadow: 0 0 0 3px rgba($accent-color, 0.25);
   }
 }
 
 //テキストエリア
 textarea {
   resize: vertical;
+  height: rm(160);
 }
 
 // ===================================
@@ -109,33 +139,60 @@ input[type="checkbox"] {
   clip: rect(0, 0, 0, 0);
 }
 //チェックボックスカスタマイズ ====================
-//チェックされた時の挙動
-input[type="checkbox"]:checked + span {
-  &::after {
-    opacity: 1;
-  }
-}
-//カスタマイズ
 .contact__data-checkbox {
-  //全体のcss
-
-  //各項目のcss
   span {
     display: inline-block;
-
+    font-size: rm(18);
+    line-height: normal;
+    padding-left: rm(42);
     position: relative;
-    //frame
     &::before {
       content: "";
       position: absolute;
+      top: rm(-1.5);
+      left: 0;
+      width: rm(30);
+      height: rm(30);
+      border: 1px solid $color-base;
+      background: $white;
+      box-shadow: none;
+      transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
-    //active
     &::after {
       content: "";
       position: absolute;
-
+      top: rm(4);
+      left: rm(11);
+      width: rm(9);
+      height: rm(15);
+      rotate: 45deg;
+      border-right: 1.5px solid $accent-color;
+      border-bottom: 1.5px solid $accent-color;
       opacity: 0;
+      transition: opacity 0.3s ease;
     }
+  }
+
+  // 選択済み
+  input[type="checkbox"]:checked + span::after {
+    opacity: 1;
+  }
+
+  // マウスオーバー時
+  input[type="checkbox"]:hover + span::before,
+  input[type="checkbox"]:focus + span::before {
+    // border-color: $accent-color;
+    box-shadow: 0 0 0 3px rgba($accent-color, 0.25);
+    background: $white;
+  }
+
+  // クリック時
+  input[type="checkbox"]:active + span::before {
+    border-color: $accent-color;
+    background: rgba($accent-color, 0.15);
   }
 }
 
@@ -204,7 +261,30 @@ input[type="button"]::-webkit-search-decoration {
 // 送信ボタンのカスタマイズ====================
 .contact__submit {
   text-align: center;
+  background: $accent-color;
+  padding: rm(15);
+  width: 100%;
+  max-width: rm(239);
+  margin-inline: auto;
+  margin-block-start: rm(10);
+  @include mq(sp) {
+    max-width: rm(300);
+  }
   input[type="submit"] {
     display: inline-block;
+    color: $white;
   }
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+// ===================================
+// エラーメッセージ
+// ===================================
+.contact__error-message {
+  color: red;
+  font-weight: 700;
+  font-size: rm(16);
+  margin-top: rm(6);
 }

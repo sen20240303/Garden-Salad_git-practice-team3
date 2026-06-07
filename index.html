@@ -135,11 +135,16 @@
             <p class="p-contact__text">
               ご質問などは、下記のフォームよりお問い合わせください。
             </p>
-            <form action="" class="contact__form">
+            <form action="" class="contact__form" id="contact-form">
               <div class="contact__row">
                 <p class="contact__head"><span class="--must">お名前</span></p>
                 <div class="contact__data">
-                  <input type="text" placeholder="例 &#41; 山田　花子" />
+                  <input
+                    type="text"
+                    placeholder="例 &#41; 山田　花子"
+                    id="inName"
+                  />
+                  <p class="contact__error-message" id="emName"></p>
                 </div>
               </div>
               <div class="contact__row">
@@ -150,7 +155,9 @@
                   <input
                     type="email"
                     placeholder="例 &#41;  hanako-yamada@example.com"
+                    id="inEmail"
                   />
+                  <p class="contact__error-message" id="emEmail"></p>
                 </div>
               </div>
               <div class="contact__row">
@@ -162,27 +169,32 @@
                 </div>
               </div>
               <div class="contact__row">
-                <p class="contact__head"><span></span></p>
+                <p class="contact__head">
+                  <span class="--must">お問い合わせ内容</span>
+                </p>
                 <div class="contact__data">
                   <textarea
                     name="message"
                     placeholder="例 &#41; ご質問やお問い合わせ内容をご記入ください。"
+                    id="inTextarea"
                   ></textarea>
+                  <p class="contact__error-message" id="emTextarea"></p>
                 </div>
               </div>
               <div class="contact__acceptance contact__data-checkbox">
-                <label for="acceptance">
+                <label for="inPrivacy">
                   <input
                     type="checkbox"
-                    id="acceptance"
+                    id="inPrivacy"
                     name=""
                     value="acceptance"
                   />
-                  <span><a href="">プライバシーポリシー</a>に同意する</span>
+                  <span><a href="">プライバシーポリシー</a>に同意する。</span>
                 </label>
+                <p class="contact__error-message" id="emPrivacy"></p>
               </div>
               <div class="contact__submit">
-                <input type="submit" value="送信する" />
+                <input type="submit" value="送信" id="button" />
               </div>
             </form>
           </div>
