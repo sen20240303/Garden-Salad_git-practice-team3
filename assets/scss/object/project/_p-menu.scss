@@ -5,6 +5,14 @@
   margin-inline: auto;
 }
 
+.p-menu__headings__ja {
+  color: $white;
+}
+
+.p-menu__headings__en {
+  color: $white;
+}
+
 .p-menu__section {
   background-color: $color-base;
   position: relative;
@@ -51,6 +59,10 @@
   margin-top: rm(54);
   @include mq(sp) {
     margin-top: rm(48);
+    align-items: center;
+    gap: rm(48);
+    max-width: 500px;
+    margin-inline: auto;
   }
 }
 
@@ -66,9 +78,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     max-width: none;
-    height: rm(594);
+    height: auto;
     margin-inline: auto;
+    padding-inline: rm(8) rm(20);
   }
 }
 
@@ -82,6 +96,7 @@
     height: 100%;
     object-fit: cover;
   }
+  
   @include mq(sp) {
     width: 100%;
     height: auto;
@@ -106,9 +121,8 @@
   margin-top: rm(51);
   padding-block: calc(113 / 592 * 100%) calc(45 / 592 * 100%);
   @include mq(sp) {
-    width: rm(300);
     height: rm(323);
-    margin-top: 0;
+    margin-top: rm(-50);
     margin-left: 0;
     padding-block: rm(113) rm(45);
   }
@@ -268,7 +282,9 @@
   margin-top: rm(58);
   @include mq(sp) {
     flex-direction: column;
-    margin-top: rm(48);
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
     gap: rm(48);
   }
 }
@@ -276,11 +292,13 @@
 .p-menu__wrap {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  align-items: center;
   position: relative;
   width: 100%;
-  height: rm(638);
+  min-width: 0;
+  container-type: inline-size;
   @include mq(sp) {
+    justify-content: end;
     height: rm(484);
     padding-inline: rm(15) rm(23);
   }
@@ -290,44 +308,54 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
   container-type: inline-size;
+  z-index: 1;
+  // カンプ時の重なり量（72px）を維持してカードを画像に寄せる
+  margin-top: calc(-72 / 524 * 100cqw);
   padding-block: rm(73) rm(42);
   @include mq(sp) {
+    margin-top: 0;
     padding-block: rm(58) rm(42);
     padding-left: rm(7);
   }
 }
 
 .p-menu__img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: rm(434);
-  z-index: 10;
-  text-align: center;
+  width: min(#{rm(417)}, calc(417 / 524 * 100cqw));
+  aspect-ratio: 417 / 434;
+  flex-shrink: 0;
+  z-index: 2;
   @include mq(sp) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: rm(305);
+    aspect-ratio: auto;
     height: rm(317);
   }
 
   img {
-    width: rm(417);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     @include mq(sp) {
       width: rm(308);
+      height: auto;
+      object-fit: unset;
     }
   }
 }
 
 .p-menu__insta {
-  padding-inline: rm(62);
+  padding-inline: rm(46) rm(62);
   margin-top: rm(80);
   text-align: center;
   padding-bottom: rm(36);
   @include mq(sp) {
     padding-inline: rm(21);
-    margin-top: rm(48);
+    margin-top: rm(0);
     padding-bottom: rm(34);
     margin-inline: rm(25) rm(18);
   }
@@ -375,6 +403,9 @@
   display: flex;
   gap: rm(16);
   margin-top: rm(34);
+
+  overflow-x: auto;
+  overflow-y: hidden;
   @include mq(sp) {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
@@ -384,7 +415,13 @@
 }
 
 .p-menu__insta-img {
+  flex-shrink: 0;
+  width: rm(231);
 
+  img {
+    width: 100%;
+    display: block;
+  }
 }
 
 .p-menu__insta-id {
@@ -407,6 +444,19 @@
   letter-spacing: 0.48px;
   margin-top: rm(26);
   border: 1px solid $color-base;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rm(23);
+
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: rm(22);
+    height: rm(22);
+    background: url("../img/insta-link-icon.svg") no-repeat center center / contain;
+  }
   @include mq(sp) {
     width: rm(260);
     margin-inline: auto;
