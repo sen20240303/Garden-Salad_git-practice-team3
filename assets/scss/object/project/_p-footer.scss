@@ -1,2 +1,183 @@
-@use "../../global" as *;
+@use '../../global' as *;
 
+.p-footer {
+  background: $color-main;
+
+  @include mq(sp) {
+    min-height: rm(340);
+  }
+}
+
+.p-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: rm(56) rm(9);
+
+  @include mq(sp) {
+    box-sizing: border-box;
+    min-height: rm(340);
+    padding-block: rm(48) rm(10);
+  }
+}
+
+.p-footer__sns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: rm(40);
+
+  @include mq(sp) {
+    width: rm(230);
+    column-gap: 0;
+    justify-content: space-between;
+  }
+}
+
+.p-footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: rm(40);
+  height: rm(40);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  background: $color-base;
+  color: $white;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
+
+  @include mq(sp) {
+    width: rm(50);
+    height: rm(50);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      border-color: $color-base;
+      background: $white;
+      color: $color-base;
+    }
+  }
+
+  // FontAwesomeのアイコンのサイズを指定
+  .fa-brands {
+    line-height: 1;
+  }
+
+  .fa-x-twitter {
+    font-size: rm(18);
+
+    @include mq(sp) {
+      font-size: rm(22);
+    }
+  }
+
+  .fa-instagram {
+    font-size: rm(21);
+
+    @include mq(sp) {
+      font-size: rm(26);
+    }
+  }
+
+  .fa-tiktok {
+    font-size: rm(18);
+
+    @include mq(sp) {
+      font-size: rm(20);
+    }
+  }
+}
+
+.p-footer__nav {
+  margin-block-start: rm(40);
+
+  @include mq(sp) {
+    width: 100%;
+    max-width: rm(283);
+    margin-block-start: rm(41);
+  }
+}
+
+.p-footer__nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: rm(40);
+
+  @include mq(sp) {
+    flex-wrap: nowrap;
+    column-gap: rm(32);
+  }
+}
+
+.p-footer__nav-link {
+  font-family: $ff-en-reross;
+  color: $color-text;
+  white-space: nowrap;
+  @include font(18, 400, 22, 0.54);
+  line-height: normal;
+  transition: opacity 0.3s ease;
+
+  @include mq(sp) {
+    @include font(16, 400, 19, 0.48);
+    line-height: rm(19);
+    flex-shrink: 0;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.p-footer__logo {
+  display: block;
+  width: rm(166);
+  height: auto;
+  aspect-ratio: 166 / 92;
+  margin-block-start: rm(36);
+  transition: opacity 0.3s ease;
+
+  @include mq(sp) {
+    margin-block-start: rm(34);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.p-footer__copyright {
+  display: block;
+  margin-block-start: rm(20);
+  color: $color-text;
+  @include font(12, 400, 17, 0.36);
+  line-height: normal;
+  text-align: center;
+
+  @include mq(sp) {
+    margin-block-start: rm(29);
+    line-height: rm(17);
+  }
+}
+
+.p-footer__copyright-dot {
+  display: none;
+
+  @include mq(sp) {
+    display: inline;
+  }
+}

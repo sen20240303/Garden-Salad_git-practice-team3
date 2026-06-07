@@ -84,22 +84,14 @@
           <div class="p-contact__card">
             <div class="c-headings p-contact__headings">
               <h2 class="c-headings__ja p-contact__heading-ja">お問い合わせ</h2>
-              <p class="c-headings__en --line-green p-contact__heading-en">
-                contact
-              </p>
+              <p class="c-headings__en --line-green p-contact__heading-en">contact</p>
             </div>
-            <p class="p-contact__text">
-              ご質問などは、下記のフォームよりお問い合わせください。
-            </p>
+            <p class="p-contact__text">ご質問などは、下記のフォームよりお問い合わせください。</p>
             <form action="" class="contact__form" id="contact-form">
               <div class="contact__row">
                 <p class="contact__head"><span class="--must">お名前</span></p>
                 <div class="contact__data">
-                  <input
-                    type="text"
-                    placeholder="例 &#41; 山田　花子"
-                    id="inName"
-                  />
+                  <input type="text" placeholder="例 &#41; 山田　花子" id="inName" />
                   <p class="contact__error-message" id="emName"></p>
                 </div>
               </div>
@@ -139,12 +131,7 @@
               </div>
               <div class="contact__acceptance contact__data-checkbox">
                 <label for="inPrivacy">
-                  <input
-                    type="checkbox"
-                    id="inPrivacy"
-                    name=""
-                    value="acceptance"
-                  />
+                  <input type="checkbox" id="inPrivacy" name="" value="acceptance" />
                   <span><a href="">プライバシーポリシー</a>に同意する。</span>
                 </label>
                 <p class="contact__error-message" id="emPrivacy"></p>
@@ -158,7 +145,55 @@
       </section>
     </main>
 
-    <footer class="l-footer"></footer>
+    <footer class="l-footer p-footer" id="footer">
+      <div class="p-footer__inner">
+        <ul class="p-footer__sns">
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="X（旧Twitter）">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+        <nav class="p-footer__nav" aria-label="フッターナビゲーション">
+          <ul class="p-footer__nav-list">
+            <li class="p-footer__nav-item">
+              <a href="#about" class="p-footer__nav-link">About</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#menu" class="p-footer__nav-link">Menu</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#shop" class="p-footer__nav-link">Shop</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#contact" class="p-footer__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="" class="p-footer__logo">
+          <img
+            src="./assets/img/footer-logo.webp"
+            alt="TF Garden Salad"
+            width="166"
+            height="92"
+            loading="lazy"
+          />
+        </a>
+        <small class="p-footer__copyright"
+          >©︎ TF Garden Salad<span class="p-footer__copyright-dot">.</span></small
+        >
+      </div>
+    </footer>
 
     <!-- jsファイルの読み込み -->
     <script src="./assets/js/lib/swiper-bundle.min.js"></script>
