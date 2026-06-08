@@ -1,338 +1,462 @@
 <!doctype html>
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- meta情報 -->
+    <title>Document</title>
+    <meta name="description" content="" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ogp -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="" />
 
-  <!-- meta情報 -->
-  <title>Document</title>
-  <meta name="description" content="" />
-
-  <!-- ogp -->
-  <meta property="og:url" content="" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="" />
-  <meta property="og:description" content="" />
-  <meta property="og:site_name" content="" />
-  <meta property="og:image" content="" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:description" content="" />
-
-  <!-- favicon -->
-  <link rel="icon" href="./assets/img/favicon.ico" type="image/svg+xml" />
-  <!-- <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" sizes="180x180">
+    <!-- favicon -->
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/svg+xml" />
+    <!-- <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" sizes="180x180">
 	  <link rel="icon" href="./assets/img/android-icon.png" sizes="192x192"> -->
 
-  <!-- google-font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Satisfy&display=swap"
-    rel="stylesheet" />
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Adobe-font -->
-  <link rel="stylesheet" href="https://use.typekit.net/pmh7ogw.css" />
+    <!-- Adobe-font -->
+    <link rel="stylesheet" href="https://use.typekit.net/pmh7ogw.css" />
 
-  <!-- Font-awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- css -->
-  <link rel="stylesheet" href="./assets/css/lib/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css?ver1.0" />
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/lib/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css?ver1.0" />
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</head>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
 
-<body>
-  <header class="p-header">
-    <div class="p-header__inner">
-      <a href="" class="p-header__logo">
-        <img src='./assets/img/header-logo.webp' alt='TF Garden Salad' width='117' height='63' loading='lazy'>
-      </a>
-      <nav class="p-header__nav">
-        <ul class="p-header__list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="l-main">
-    <section class="p-fv">
-      <div class="p-fv__inner">
-        <div class="p-fv__top">
-          <div class="p-fv__left">
-            <div class="p-fv__title-wrap">
-              <h1 class="p-fv__title">
-                Let's eat<br />delicious<br /><span>salad</span>.
-              </h1>
-              <p class="p-fv__text-white">健康のためじゃない、</p>
-              <p class="p-fv__text-green"><span>「おいしいから食べたい」サラダ</span></p>
-            </div>
-          </div>
-          <div class="p-fv__right">
-            <picture>
-              <source srcset="./assets/img/fv-img-main.webp" media="(min-width: 768px)" />
-              <img src="./assets/img/fv-img-main-sp.webp" alt="サラダと飲み物の写真" width="308" height="243" loading="lazy" />
-            </picture>
-          </div>
-        </div>
-        <div class="p-fv__bottom">
-          <div class="p-fv__bottom-inner">
-            <h2 class="p-fv__bottom-heading">毎日食べるからこそ、<br class="u-sp">おいしいものを。</h2>
-            <p class="p-fv__bottom-text">ヘルシーで栄養豊富なサラダは、健康のために<br class="u-pc">毎日食べようと思っている人は多いはず。</p>
-            <p class="p-fv__bottom-text">毎日食べるからこそ品質の良い、飽きのこない、<br class="u-pc">おいしいものを楽しんでいただきたい。</p>
-            <p class="p-fv__bottom-text">そんな想いからできた「おいしいから食べたい」サラダを<br class="u-pc">あなたにお届けいたします。</p>
-          </div>
-          <div class="p-fv__bottom-img">
-            <picture>
-              <source srcset="./assets/img/fv-img-bg.webp" media="(min-width: 768px)">
-              <img src="./assets//img/sp/fv-sp-img-bg.webp" alt="Garden Salad" width="411" height="176" loading="lazy">
-            </picture>
-          </div>
-        </div>
+  <body>
+    <header class="p-header">
+      <div class="p-header__inner">
+        <a href="" class="p-header__logo">
+          <img
+            src="./assets/img/header-logo.webp"
+            alt="TF Garden Salad"
+            width="117"
+            height="63"
+            loading="lazy"
+          />
+        </a>
+        <nav class="p-header__nav">
+          <ul class="p-header__list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-    </section>
-    <section class="p-about" id="about">
-      <div class="p-about__inner">
-        <div class="c-headings p-about__headings">
-          <h2 class="c-headings__ja p-about__headings--ja">Garden Saladのこだわり</h2>
-          <p class="c-headings__en --line-green p-about__headings--en">
-            About
-          </p>
-        </div>
-        <div class="p-about__container">
-          <div class="p-about__item p-about-item">
-            <div class="p-about-item__body">
-              <div class="p-about-item__wrap">
-                <h2 class="p-about-item__title">全ての食材が安心の<span>国産</span></h2>
-                <p class="p-about-item__text">TF Garden Saladaの食材は全て産地の公表をしています。 信頼できる農家さんから直接買い取り、その日採れたものをその日のうちに厨房へ。</p>
-              </div>
-              <div class="p-about-item__number">
-                <img src="./assets/img/about-num-1.webp" alt="01" width="262" height="216" loading="lazy">
-              </div>
-            </div>
-            <div class="p-about-item__img">
-              <img src="./assets/img/about-img1.webp" alt="野菜の写真" width="450" height="288" loading="lazy">
-            </div>
-          </div>
-          <div class="p-about__item p-about-item">
-            <div class="p-about-item__body">
-              <div class="p-about-item__wrap">
-                <h2 class="p-about-item__title">カスタム可能で<br>その組み合わせは<span class="is-green">全400種類</span><span class="u-pc">！</span><span class="u-sp">!</span></h2>
-                <p class="p-about-item__text">定番のメニューに加えてサラダのフルカスタムも可能。お好みのベース×トッピング×ドレッシングを選んであなた好みにアレンジして。</p>
-              </div>
-              <div class="p-about-item__number">
-                <img src="./assets/img/about-num-2.webp" alt="02" width="295" height="216" loading="lazy">
-              </div>
-            </div>
-            <div class="p-about-item__img">
-              <img src="./assets/img/about-img2.webp" alt="野菜のトッピングの写真" width="450" height="288" loading="lazy">
-            </div>
-          </div>
-          <div class="p-about__item p-about-item">
-            <div class="p-about-item__body">
-              <div class="p-about-item__wrap">
-                <h2 class="p-about-item__title"><span class="is-green">ジムトレーナー監修</span>の<br class="u-sp">メニュー</h2>
-                <p class="p-about-item__text">コンビニのサラダチキンに飽きたらこれ！一食でタンパク質20gがとれるトレーニング向けのメニューもご用意してます。</p>
-              </div>
-              <div class="p-about-item__number">
-                <img src="./assets/img/about-num-3.webp" alt="03" width="299" height="216" loading="lazy">
-              </div>
-            </div>
-            <div class="p-about-item__img">
-              <img src="./assets/img/about-img3.webp" alt="サラダの写真" width="450" height="288" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section class="p-menu__section">
-      <div class="inner">
-        <div class="c-headings p-contact__headings">
-          <h2 class="c-headings__ja p-menu__headings__ja">メニュー</h2>
-          <p class="c-headings__en --line-white p-menu__headings__en">
-            Menu
-          </p>
+    <main class="l-main">
+      <!-- 以下に各セクションを作成 -->
+      <section class="p-fv">
+        <div class="p-fv__inner">
+          <div class="p-fv__top">
+            <div class="p-fv__left">
+              <div class="p-fv__title-wrap">
+                <h1 class="p-fv__title">
+                  Let's eat<br />delicious<br /><span>salad</span>.
+                </h1>
+                <p class="p-fv__text-white">健康のためじゃない、</p>
+                <p class="p-fv__text-green">
+                  <span>「おいしいから食べたい」サラダ</span>
+                </p>
+              </div>
+            </div>
+            <div class="p-fv__right">
+              <picture>
+                <source
+                  srcset="./assets/img/fv-img-main.webp"
+                  media="(min-width: 768px)"
+                />
+                <img
+                  src="./assets/img/fv-img-main-sp.webp"
+                  alt="サラダと飲み物の写真"
+                  width="308"
+                  height="243"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
+          <div class="p-fv__bottom">
+            <div class="p-fv__bottom-inner">
+              <h2 class="p-fv__bottom-heading">
+                毎日食べるからこそ、<br class="u-sp" />おいしいものを。
+              </h2>
+              <p class="p-fv__bottom-text">
+                ヘルシーで栄養豊富なサラダは、健康のために<br
+                  class="u-pc"
+                />毎日食べようと思っている人は多いはず。
+              </p>
+              <p class="p-fv__bottom-text">
+                毎日食べるからこそ品質の良い、飽きのこない、<br
+                  class="u-pc"
+                />おいしいものを楽しんでいただきたい。
+              </p>
+              <p class="p-fv__bottom-text">
+                そんな想いからできた「おいしいから食べたい」サラダを<br
+                  class="u-pc"
+                />あなたにお届けいたします。
+              </p>
+            </div>
+            <div class="p-fv__bottom-img">
+              <picture>
+                <source
+                  srcset="./assets/img/fv-img-bg.webp"
+                  media="(min-width: 768px)"
+                />
+                <img
+                  src="./assets//img/sp/fv-sp-img-bg.webp"
+                  alt="Garden Salad"
+                  width="411"
+                  height="176"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
         </div>
-        <p class="p-menu__nutrition">P : タンパク質　F : 脂質　C : 糖質</p>
-        <div class="p-menu__wrapper">
-          <div class="p-menu__wrap-top">
-            <div class="p-menu__recommend-img">
-              <img src='./assets/img/menu-img1.webp' alt='カッテージチーズとバジルのサラダ' width='451' height='445' loading='lazy'>
-            </div>
-            <div class="p-menu__recommend-card">
-              <div class="p-menu__recommend-tag">
-                <p class="p-menu__recommend-tag-text">Recommendation</p>
-                <p class="p-menu__recommend-tag-title">店長おすすめ</p>
-              </div>
-              <h3 class="p-menu__title">カッテージチーズと<br>
-                バジルのサラダ</h3>
-              <div class="p-menu__price">1,100</div>
-              <div class="p-menu__text">305kcal　P : 16.2g F : 12.5g C : 13.3g</div>
-            </div>
-          </div>
-          <div class="p-menu__wrap-bottom">
-            <div class="p-menu__wrap">
-              <div class="p-menu__img">
-                <img src='./assets/img/menu-img2.webp' alt='アボガドサラダ' width='451' height='445' loading='lazy'>
-              </div>
-              <div class="p-menu__card">
-                <h3 class="p-menu__title">アボガドサラダ</h3>
-                <div class="p-menu__price">980</div>
-                <div class="p-menu__text">425kcal P : 12.2g F : 15.3g C : 16.8g</div>
-              </div>
-            </div>
-            <div class="p-menu__wrap">
-              <div class="p-menu__img">
-                <img src='./assets/img/menu-img3.webp' alt='チキンサラダ' width='451' height='445' loading='lazy'>
-              </div>
-              <div class="p-menu__card">
-                <h3 class="p-menu__title">チキンサラダ</h3>
-                <div class="p-menu__price">980</div>
-                <div class="p-menu__text">455kcal P : 20.2g F : 11.3g C : 15.7g</div>
-              </div>
-            </div>
-          </div>
-          <div class="p-menu__insta">
-            <div class="p-menu__tag">Instagram</div>
-            <p class="p-menu__insta-text">Instagramにはさらに詳しいメニュー内容などを載せています</p>
-            <div class="p-menu__insta-imgs">
-              <div class="p-menu__insta-img">
-                <img src='./assets/img/menu-insta-img1.webp' alt='' width='231' height='231' loading='lazy'>
-              </div>
-              <div class="p-menu__insta-img">
-                <img src='./assets/img/menu-insta-img2.webp' alt='' width='231' height='231' loading='lazy'>
-              </div>
-              <div class="p-menu__insta-img">
-                <img src='./assets/img/menu-insta-img3.webp' alt='' width='231' height='231' loading='lazy'>
-              </div>
-              <div class="p-menu__insta-img">
-                <img src='./assets/img/menu-insta-img4.webp' alt='' width='231' height='231' loading='lazy'>
-              </div>
-            </div>
-            <div class="p-menu__insta-id">ID：tf_gardensalad</div>
-            <a href="" class="p-menu__btn">もっとメニューを見る</a>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="p-contact">
-      <div class="p-contact__inner l-inner">
-        <div class="p-contact__card">
+      <section class="p-about" id="about">
+        <div class="p-about__inner">
+          <div class="c-headings p-about__headings">
+            <h2 class="c-headings__ja p-about__headings--ja">Garden Saladのこだわり</h2>
+            <p class="c-headings__en --line-green p-about__headings--en">
+              About
+            </p>
+          </div>
+          <div class="p-about__container">
+            <div class="p-about__item p-about-item">
+              <div class="p-about-item__body">
+                <div class="p-about-item__wrap">
+                  <h2 class="p-about-item__title">全ての食材が安心の<span>国産</span></h2>
+                  <p class="p-about-item__text">TF Garden Saladaの食材は全て産地の公表をしています。 信頼できる農家さんから直接買い取り、その日採れたものをその日のうちに厨房へ。</p>
+                </div>
+                <div class="p-about-item__number">
+                  <img src="./assets/img/about-num-1.webp" alt="01" width="262" height="216" loading="lazy">
+                </div>
+              </div>
+              <div class="p-about-item__img">
+                <img src="./assets/img/about-img1.webp" alt="野菜の写真" width="450" height="288" loading="lazy">
+              </div>
+            </div>
+            <div class="p-about__item p-about-item">
+              <div class="p-about-item__body">
+                <div class="p-about-item__wrap">
+                  <h2 class="p-about-item__title">カスタム可能で<br>その組み合わせは<span class="is-green">全400種類</span><span class="u-pc">！</span><span class="u-sp">!</span></h2>
+                  <p class="p-about-item__text">定番のメニューに加えてサラダのフルカスタムも可能。お好みのベース×トッピング×ドレッシングを選んであなた好みにアレンジして。</p>
+                </div>
+                <div class="p-about-item__number">
+                  <img src="./assets/img/about-num-2.webp" alt="02" width="295" height="216" loading="lazy">
+                </div>
+              </div>
+              <div class="p-about-item__img">
+                <img src="./assets/img/about-img2.webp" alt="野菜のトッピングの写真" width="450" height="288" loading="lazy">
+              </div>
+            </div>
+            <div class="p-about__item p-about-item">
+              <div class="p-about-item__body">
+                <div class="p-about-item__wrap">
+                  <h2 class="p-about-item__title"><span class="is-green">ジムトレーナー監修</span>の<br class="u-sp">メニュー</h2>
+                  <p class="p-about-item__text">コンビニのサラダチキンに飽きたらこれ！一食でタンパク質20gがとれるトレーニング向けのメニューもご用意してます。</p>
+                </div>
+                <div class="p-about-item__number">
+                  <img src="./assets/img/about-num-3.webp" alt="03" width="299" height="216" loading="lazy">
+                </div>
+              </div>
+              <div class="p-about-item__img">
+                <img src="./assets/img/about-img3.webp" alt="サラダの写真" width="450" height="288" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-menu__section">
+        <div class="inner">
           <div class="c-headings p-contact__headings">
-            <h2 class="c-headings__ja p-contact__heading-ja">お問い合わせ</h2>
-            <p class="c-headings__en --line-green p-contact__heading-en">contact</p>
+            <h2 class="c-headings__ja p-menu__headings__ja">メニュー</h2>
+            <p class="c-headings__en --line-white p-menu__headings__en">Menu</p>
           </div>
-          <p class="p-contact__text">ご質問などは、下記のフォームよりお問い合わせください。</p>
-          <form action="" class="contact__form" id="contact-form">
-            <div class="contact__row">
-              <p class="contact__head"><span class="--must">お名前</span></p>
-              <div class="contact__data">
-                <input type="text" placeholder="例 &#41; 山田　花子" id="inName" />
-                <p class="contact__error-message" id="emName"></p>
+          <p class="p-menu__nutrition">P : タンパク質　F : 脂質　C : 糖質</p>
+          <div class="p-menu__wrapper">
+            <div class="p-menu__wrap-top">
+              <div class="p-menu__recommend-img">
+                <img
+                  src="./assets/img/menu-img1.webp"
+                  alt="カッテージチーズとバジルのサラダ"
+                  width="451"
+                  height="445"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-menu__recommend-card">
+                <div class="p-menu__recommend-tag">
+                  <p class="p-menu__recommend-tag-text">Recommendation</p>
+                  <p class="p-menu__recommend-tag-title">店長おすすめ</p>
+                </div>
+                <h3 class="p-menu__title">
+                  カッテージチーズと<br />
+                  バジルのサラダ
+                </h3>
+                <div class="p-menu__price">1,100</div>
+                <div class="p-menu__text">
+                  305kcal　P : 16.2g F : 12.5g C : 13.3g
+                </div>
               </div>
             </div>
-            <div class="contact__row">
-              <p class="contact__head">
-                <span class="--must">メールアドレス</span>
+            <div class="p-menu__wrap-bottom">
+              <div class="p-menu__wrap">
+                <div class="p-menu__img">
+                  <img
+                    src="./assets/img/menu-img2.webp"
+                    alt="アボガドサラダ"
+                    width="451"
+                    height="445"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-menu__card">
+                  <h3 class="p-menu__title">アボガドサラダ</h3>
+                  <div class="p-menu__price">980</div>
+                  <div class="p-menu__text">
+                    425kcal P : 12.2g F : 15.3g C : 16.8g
+                  </div>
+                </div>
+              </div>
+              <div class="p-menu__wrap">
+                <div class="p-menu__img">
+                  <img
+                    src="./assets/img/menu-img3.webp"
+                    alt="チキンサラダ"
+                    width="451"
+                    height="445"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-menu__card">
+                  <h3 class="p-menu__title">チキンサラダ</h3>
+                  <div class="p-menu__price">980</div>
+                  <div class="p-menu__text">
+                    455kcal P : 20.2g F : 11.3g C : 15.7g
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-menu__insta">
+              <div class="p-menu__tag">Instagram</div>
+              <p class="p-menu__insta-text">
+                Instagramにはさらに詳しいメニュー内容などを載せています
               </p>
-              <div class="contact__data">
-                <input type="email" placeholder="例 &#41;  hanako-yamada@example.com" id="inEmail" />
-                <p class="contact__error-message" id="emEmail"></p>
+              <div class="p-menu__insta-imgs">
+                <div class="p-menu__insta-img">
+                  <img
+                    src="./assets/img/menu-insta-img1.webp"
+                    alt=""
+                    width="231"
+                    height="231"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-menu__insta-img">
+                  <img
+                    src="./assets/img/menu-insta-img2.webp"
+                    alt=""
+                    width="231"
+                    height="231"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-menu__insta-img">
+                  <img
+                    src="./assets/img/menu-insta-img3.webp"
+                    alt=""
+                    width="231"
+                    height="231"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-menu__insta-img">
+                  <img
+                    src="./assets/img/menu-insta-img4.webp"
+                    alt=""
+                    width="231"
+                    height="231"
+                    loading="lazy"
+                  />
+                </div>
               </div>
+              <div class="p-menu__insta-id">ID：tf_gardensalad</div>
+              <a href="" class="p-menu__btn">もっとメニューを見る</a>
             </div>
-            <div class="contact__row">
-              <p class="contact__head">
-                <span>電話番号</span>
-              </p>
-              <div class="contact__data">
-                <input type="text" placeholder="例 &#41; 090-0000-0000" />
-              </div>
-            </div>
-            <div class="contact__row">
-              <p class="contact__head">
-                <span class="--must">お問い合わせ内容</span>
-              </p>
-              <div class="contact__data">
-                <textarea name="message" placeholder="例 &#41; ご質問やお問い合わせ内容をご記入ください。" id="inTextarea"></textarea>
-                <p class="contact__error-message" id="emTextarea"></p>
-              </div>
-            </div>
-            <div class="contact__acceptance contact__data-checkbox">
-              <label for="inPrivacy">
-                <input type="checkbox" id="inPrivacy" name="" value="acceptance" />
-                <span><a href="">プライバシーポリシー</a>に同意する。</span>
-              </label>
-              <p class="contact__error-message" id="emPrivacy"></p>
-            </div>
-            <div class="contact__submit">
-              <input type="submit" value="送信" id="button" />
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="l-footer p-footer" id="footer">
-    <div class="p-footer__inner">
-      <ul class="p-footer__sns">
-        <li class="p-footer__sns-item">
-          <a href="" class="p-footer__sns-link" aria-label="X（旧Twitter）">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="p-footer__sns-item">
-          <a href="" class="p-footer__sns-link" aria-label="Instagram">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="p-footer__sns-item">
-          <a href="" class="p-footer__sns-link" aria-label="TikTok">
-            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-      <nav class="p-footer__nav" aria-label="フッターナビゲーション">
-        <ul class="p-footer__nav-list">
-          <li class="p-footer__nav-item">
-            <a href="#about" class="p-footer__nav-link">About</a>
+      <section class="p-contact">
+        <div class="p-contact__inner l-inner">
+          <div class="p-contact__card">
+            <div class="c-headings p-contact__headings">
+              <h2 class="c-headings__ja p-contact__heading-ja">お問い合わせ</h2>
+              <p class="c-headings__en --line-green p-contact__heading-en">
+                contact
+              </p>
+            </div>
+            <p class="p-contact__text">
+              ご質問などは、下記のフォームよりお問い合わせください。
+            </p>
+            <form action="" class="contact__form" id="contact-form">
+              <div class="contact__row">
+                <p class="contact__head"><span class="--must">お名前</span></p>
+                <div class="contact__data">
+                  <input
+                    type="text"
+                    placeholder="例 &#41; 山田　花子"
+                    id="inName"
+                  />
+                  <p class="contact__error-message" id="emName"></p>
+                </div>
+              </div>
+              <div class="contact__row">
+                <p class="contact__head">
+                  <span class="--must">メールアドレス</span>
+                </p>
+                <div class="contact__data">
+                  <input
+                    type="email"
+                    placeholder="例 &#41;  hanako-yamada@example.com"
+                    id="inEmail"
+                  />
+                  <p class="contact__error-message" id="emEmail"></p>
+                </div>
+              </div>
+              <div class="contact__row">
+                <p class="contact__head">
+                  <span>電話番号</span>
+                </p>
+                <div class="contact__data">
+                  <input type="text" placeholder="例 &#41; 090-0000-0000" />
+                </div>
+              </div>
+              <div class="contact__row">
+                <p class="contact__head">
+                  <span class="--must">お問い合わせ内容</span>
+                </p>
+                <div class="contact__data">
+                  <textarea
+                    name="message"
+                    placeholder="例 &#41; ご質問やお問い合わせ内容をご記入ください。"
+                    id="inTextarea"
+                  ></textarea>
+                  <p class="contact__error-message" id="emTextarea"></p>
+                </div>
+              </div>
+              <div class="contact__acceptance contact__data-checkbox">
+                <label for="inPrivacy">
+                  <input
+                    type="checkbox"
+                    id="inPrivacy"
+                    name=""
+                    value="acceptance"
+                  />
+                  <span><a href="">プライバシーポリシー</a>に同意する。</span>
+                </label>
+                <p class="contact__error-message" id="emPrivacy"></p>
+              </div>
+              <div class="contact__submit">
+                <input type="submit" value="送信" id="button" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="l-footer p-footer" id="footer">
+      <div class="p-footer__inner">
+        <ul class="p-footer__sns">
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="X（旧Twitter）">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
           </li>
-          <li class="p-footer__nav-item">
-            <a href="#menu" class="p-footer__nav-link">Menu</a>
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
           </li>
-          <li class="p-footer__nav-item">
-            <a href="#shop" class="p-footer__nav-link">Shop</a>
-          </li>
-          <li class="p-footer__nav-item">
-            <a href="#contact" class="p-footer__nav-link">Contact</a>
+          <li class="p-footer__sns-item">
+            <a href="" class="p-footer__sns-link" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
           </li>
         </ul>
-      </nav>
-      <a href="" class="p-footer__logo">
-        <img src="./assets/img/footer-logo.webp" alt="TF Garden Salad" width="166" height="92" loading="lazy" />
-      </a>
-      <small class="p-footer__copyright">©︎ TF Garden Salad<span class="p-footer__copyright-dot">.</span></small>
-    </div>
-  </footer>
+        <nav class="p-footer__nav" aria-label="フッターナビゲーション">
+          <ul class="p-footer__nav-list">
+            <li class="p-footer__nav-item">
+              <a href="#about" class="p-footer__nav-link">About</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#menu" class="p-footer__nav-link">Menu</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#shop" class="p-footer__nav-link">Shop</a>
+            </li>
+            <li class="p-footer__nav-item">
+              <a href="#contact" class="p-footer__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="" class="p-footer__logo">
+          <img
+            src="./assets/img/footer-logo.webp"
+            alt="TF Garden Salad"
+            width="166"
+            height="92"
+            loading="lazy"
+          />
+        </a>
+        <small class="p-footer__copyright"
+          >©︎ TF Garden Salad<span class="p-footer__copyright-dot"
+            >.</span
+          ></small
+        >
+      </div>
+    </footer>
 
-
-
-
-  <!-- jsファイルの読み込み -->
-  <script src="./assets/js/lib/swiper-bundle.min.js"></script>
-  <script type="module" src="./assets/js/main.js?ver1.0"></script>
-</body>
-
+    <!-- jsファイルの読み込み -->
+    <script src="./assets/js/lib/swiper-bundle.min.js"></script>
+    <script type="module" src="./assets/js/main.js?ver1.0"></script>
+  </body>
 </html>

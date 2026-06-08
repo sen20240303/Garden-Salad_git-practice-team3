@@ -274,9 +274,20 @@ input[type="button"]::-webkit-search-decoration {
     display: inline-block;
     color: $white;
   }
-  transition: opacity 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    background 0.3s ease;
   &:hover {
-    opacity: 0.8;
+    opacity: 0.7;
+  }
+  &:has(input[type="submit"]:disabled) {
+    background: #bdbdbd;
+    &:hover {
+      opacity: 1;
+    }
+    input[type="submit"] {
+      cursor: not-allowed;
+    }
   }
 }
 // ===================================
