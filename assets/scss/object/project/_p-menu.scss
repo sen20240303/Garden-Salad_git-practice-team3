@@ -1,0 +1,498 @@
+@use "../../global" as *;
+
+.inner {
+  max-width: rm(1080);
+  margin-inline: auto;
+}
+
+.p-menu__headings__ja {
+  color: $white;
+}
+
+.p-menu__headings__en {
+  color: $white;
+}
+
+.p-menu__section {
+  background-color: $color-base;
+  position: relative;
+  padding-inline: rm(179);
+  padding-block: rm(152) rm(172);
+  @include mq(sp) {
+    padding-inline: rm(16);
+    padding-block: rm(56);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: rm(72);
+
+    border: 1px solid $white;
+    @include mq(sp) {
+      top: rm(24);
+      right: rm(16);
+      bottom: rm(24);
+      left: rm(16);
+    }
+  }
+}
+
+.p-menu__nutrition {
+  margin-top: rm(32);
+  font-size: rm(18);
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.54px;
+  text-align: center;
+  color: $white;
+  @include mq(sp) {
+    margin-top: rm(48);
+    font-size: rm(16);
+    letter-spacing: 0.48px;
+  }
+}
+
+.p-menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: rm(54);
+  @include mq(sp) {
+    margin-top: rm(48);
+    align-items: center;
+    gap: rm(48);
+    max-width: 500px;
+    margin-inline: auto;
+  }
+}
+
+.p-menu__wrap-top {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: rm(1043); // 451 + 592（重なり90px分はカードのmarginで調整）
+  margin-inline: rm(60) rm(68);
+  grid-template-columns: minmax(0, 451fr) minmax(0, 592fr);
+  align-items: start;
+  @include mq(sp) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin-inline: auto;
+    padding-inline: rm(8) rm(20);
+  }
+}
+
+.p-menu__recommend-img {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 451 / 445;
+  z-index: 10;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @include mq(sp) {
+    width: 100%;
+    height: auto;
+
+    img {
+      height: auto;
+      object-fit: unset;
+    }
+  }
+}
+
+.p-menu__recommend-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  container-type: inline-size;
+  // カンプ比率で重なり・位置を維持しつつ親幅に追従
+  margin-left: calc(-90 / 592 * 100%);
+  margin-top: rm(51);
+  padding-block: calc(113 / 592 * 100%) calc(45 / 592 * 100%);
+  @include mq(sp) {
+    height: rm(323);
+    margin-top: rm(-50);
+    margin-left: 0;
+    padding-block: rm(113) rm(45);
+  }
+}
+
+.p-menu__title {
+  font-size: rm(30);
+  letter-spacing: rm(3);
+  @include mq(sp) {
+    font-size: rm(24);
+    line-height: 150%;
+    letter-spacing: rm(2.4);
+  }
+}
+
+.p-menu__price {
+  font-size: rm(40);
+  letter-spacing: rm(4);
+  padding-left: rm(25);
+  margin-top: rm(20);
+  @include mq(sp) {
+    font-size: rm(30);
+    letter-spacing: rm(3);
+    margin-top: rm(16);
+  }
+
+  &::before {
+    font-size: rm(24);
+    letter-spacing: rm(2.4);
+    @include mq(sp) {
+      font-size: rm(16);
+      letter-spacing: rm(1.8);
+    }
+  }
+
+  &::after {
+    font-size: rm(18);
+    letter-spacing: rm(1.8);
+    @include mq(sp) {
+      font-size: rm(12);
+      letter-spacing: rm(1.2);
+    }
+  }
+}
+
+.p-menu__text {
+  font-size: min(#{rm(24)}, calc(24 / 592 * 100cqw));
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: min(#{rm(0.72)}, calc(0.72 / 592 * 100cqw));
+  margin-top: min(#{rm(27)}, calc(27 / 592 * 100cqw));
+  padding-inline: min(#{rm(76)}, calc(76 / 592 * 100cqw));
+  white-space: nowrap;
+  @include mq(sp) {
+    font-size: rm(14);
+    letter-spacing: rm(0.42);
+    margin-top: rm(16);
+    padding-inline: 0;
+    white-space: normal;
+  }
+}
+
+.p-menu__recommend-tag {
+  background: $accent-color;
+  width: rm(251);
+  color: $white;
+  padding-block: rm(9) rm(14);
+  margin-bottom: rm(35);
+  margin-inline: auto;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mq(sp) {
+    width: rm(211);
+    padding-block: rm(38) rm(16);
+    margin-bottom: rm(24);
+  }
+}
+
+.p-menu__recommend-tag-text {
+  font-family: $ff-en-satisfy;
+  font-size: rm(14);
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: rm(0.42);
+  @include mq(sp) {
+    font-size: rm(12);
+    letter-spacing: rm(0.36);
+  }
+}
+
+.p-menu__recommend-tag-title {
+  font-size: rm(24);
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: rm(0.72);
+  @include mq(sp) {
+    font-size: rm(18);
+    letter-spacing: rm(0.54);
+  }
+}
+
+.p-menu__title {
+  font-size: rm(30);
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3px;
+  @include mq(sp) {
+    font-size: rm(24);
+    line-height: 150%;
+    letter-spacing: 2.4px;
+  }
+}
+
+.p-menu__price {
+  font-family: $ff-en-reross;
+  font-size: rm(40);
+  font-weight: 400;
+  letter-spacing: 4px;
+  padding-left: rm(25);
+  margin-top: rm(20);
+  @include mq(sp) {
+    font-size: rm(30);
+    letter-spacing: 3px;
+    margin-top: rm(16);
+  }
+  &::before {
+    content: "¥";
+    font-family: $ff-en-reross;
+    font-size: rm(24);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
+    @include mq(sp) {
+      font-size: rm(16);
+      letter-spacing: 1.8px;
+    }
+  }
+  &::after {
+    content: "（税込）";
+    font-size: rm(18);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    @include mq(sp) {
+      font-size: rm(12);
+      letter-spacing: 1.2px;
+    }
+  }
+}
+
+.p-menu__wrap-bottom {
+  display: flex;
+  gap: rm(32);
+  margin-top: rm(58);
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    gap: rm(48);
+  }
+}
+
+.p-menu__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
+  @include mq(sp) {
+    justify-content: end;
+    height: rm(484);
+    padding-inline: rm(15) rm(23);
+  }
+}
+
+.p-menu__card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  container-type: inline-size;
+  z-index: 1;
+  // カンプ時の重なり量（72px）を維持してカードを画像に寄せる
+  margin-top: calc(-72 / 524 * 100cqw);
+  padding-block: rm(73) rm(42);
+  @include mq(sp) {
+    margin-top: 0;
+    padding-block: rm(58) rm(42);
+    padding-left: rm(7);
+  }
+}
+
+.p-menu__img {
+  width: min(#{rm(417)}, calc(417 / 524 * 100cqw));
+  aspect-ratio: 417 / 434;
+  flex-shrink: 0;
+  z-index: 2;
+  @include mq(sp) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: rm(305);
+    aspect-ratio: auto;
+    height: rm(317);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include mq(sp) {
+      width: rm(308);
+      height: auto;
+      object-fit: unset;
+    }
+  }
+}
+
+.p-menu__insta {
+  padding-inline: rm(46) rm(62);
+  margin-top: rm(80);
+  text-align: center;
+  padding-bottom: rm(36);
+  z-index: 5;
+  @include mq(sp) {
+    padding-inline: rm(21);
+    margin-top: rm(0);
+    padding-bottom: rm(34);
+    margin-inline: rm(25) rm(18);
+  }
+}
+
+.p-menu__tag {
+  background: $accent-color;
+  color: $white;
+  font-family: $ff-en-reross;
+  font-size: rm(30);
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  padding-block: rm(18) rm(19);
+  width: rm(360);
+  margin-inline: auto;
+  position: relative;
+  z-index: 5;
+  @include mq(sp) {
+    font-size: rm(24);
+    letter-spacing: 1.2px;
+    padding-block: rm(10) rm(11);
+    width: rm(185);
+  }
+}
+
+.p-menu__insta-text {
+  font-size: rm(18);
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  margin-top: rm(28);
+  &::before {
+    content: "";
+
+  }
+  @include mq(sp) {
+    font-size: rm(16);
+    letter-spacing: 0.8px;
+    margin-top: rm(24);
+  }
+}
+
+.p-menu__insta-imgs {
+  display: flex;
+  gap: rm(16);
+  margin-top: rm(34);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  @include mq(sp) {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: rm(10);
+    margin-top: rm(24);
+  }
+}
+
+.p-menu__insta-img {
+  flex-shrink: 0;
+  width: rm(231);
+  @include mq(sp) {
+    width: 100%;
+    min-width: rm(125)
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.p-menu__insta-id {
+  font-size: rm(18);
+  font-weight: 400;
+  line-height: normal;
+  margin-top: rm(8);
+  @include mq(sp) {
+    font-size: rm(16);
+  }
+}
+
+.p-menu__btn {
+  padding: rm(17) rm(16);
+  width: rm(300);
+  text-align: center;
+  font-size: rm(16);
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  margin-top: rm(26);
+  border: 1px solid $color-base;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rm(23);
+  @media(any-hover: hover) {
+    &:hover {
+      background: $color-text;
+      color: $white;
+      &::after {
+        background: url("../img/insta-link-icon-hover.svg") no-repeat center center / contain;
+      }
+    }
+  }
+
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: rm(22);
+    height: rm(22);
+    background: url("../img/insta-link-icon.svg") no-repeat center center / contain;
+  }
+  @include mq(sp) {
+    width: rm(260);
+    margin-inline: auto;
+    margin-top: rm(24);
+  }
+}
+
+.p-menu__recommend-card,
+.p-menu__card,
+.p-menu__insta {
+  background: $color-main;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: rm(13);
+    z-index: 1;
+    border: 1px solid $color-text;
+    pointer-events: none;
+    @include mq(sp) {
+      inset: rm(10);
+    }
+  }
+}
