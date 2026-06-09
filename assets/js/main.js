@@ -133,6 +133,22 @@ document.addEventListener("DOMContentLoaded", () => {
     element.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
+  const isFormValid = () =>
+    inName.value.trim() !== "" &&
+    inEmail.value.includes("@") &&
+    inTextarea.value.trim() !== "" &&
+    inPrivacy.checked;
+
+  const updateSubmitButtonState = () => {
+    submitButton.disabled = !isFormValid();
+  };
+
+  updateSubmitButtonState();
+  [inName, inEmail, inTextarea, inPrivacy].forEach((field) => {
+    field.addEventListener("input", updateSubmitButtonState);
+    field.addEventListener("change", updateSubmitButtonState);
+  });
+
   submitButton.addEventListener("click", function (event) {
     if (inName.value.trim() === "") {
       inName.classList.add("invalid");
@@ -222,4 +238,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     form.submit();
   };
+});
+
+// プライバシーポリシー モーダル
+const dialogs = document.querySelectorAll("dialog");
+// ダイアログを開く
+const open = document.querySelectorAll(".modal__open-btn");
+open.forEach((button) => {
+  button.addEventListener("click", () => {
+    const dialogId = button.getAttribute("data-dialog");
+    const dialog = document.getElementById(dialogId);
+    dialog.showModal();
+    dialog.classList.add("js-show");
+  });
+});
+// ダイアログを閉じる
+const close = document.querySelectorAll(".modal__close-btn");
+close.forEach((button) => {
+  button.addEventListener("click", () => {
+    const dialog = button.closest("dialog");
+    dialog.classList.remove("js-show");
+    dialog.close();
+  });
+});
+// オーバーレイクリックでダイアログを閉じる
+dialogs.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    if (event.target.closest(".dialog-inner") === null) {
+      const dialog = button.closest("dialog");
+      dialog.classList.remove("js-show");
+      dialog.close();
+    }
+  });
 });
